@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lato&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"> <!-- Corrected path -->
+    <style>
+        body {
+            background-color: #2b003a;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/login.jpg'); /* Corrected path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFC107;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(43, 0, 58, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .logout-btn, .home-btn {
+            background-color: #ff4d4d;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .home-btn {
+            bottom: 50px;
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <!-- Logout button -->
+    <button class="logout-btn" onclick="window.location.href='/logout';">Logout</button>
+    <!-- Home button -->
+    <button class="home-btn" onclick="window.location.href='/';">Home Page</button>
+
+    <div class="dashboard-container">
+        <!-- Page Selector -->
+        <label for="page" style="float:right;">Edit Page:</label>
+        <select id="page" style="float:right;">
+            <option value="Felix">Felix</option>
+            <option value="Moonlight">Moonlight</option>
+        </select>
+
+        <!-- Tabs -->
+        <div>
+            <button class="tab-button" onclick="showTab('editor')">Editor</button>
+            <button class="tab-button" onclick="showTab('preview')">Preview</button>
+            <button class="tab-button" onclick="showTab('images')">Images</button>
+            <button class="tab-button" onclick="showTab('newPage')">Create New Page</button>
+            <button class="tab-button" onclick="showTab('styleEditor')">Style Editor</button>
+        </div>
+
+        <!-- Editor Tab -->
+        <div class="tab active" id="editor">
+            <h2>Edit Page Content</h2>
+            <form id="editForm">
+                <label for="title">Edit Page Title:</label>
+                <input type="text" id="title" placeholder="Enter new title">
+                <div id="content" contenteditable="true" style="border: 1px solid #999; min-height: 200px; padding: 10px;">
+                    Edit the content here.
+                </div>
+                <button type="submit">Update Page</button>
+            </form>
+        </div>
+
+        <!-- Create New Page -->
+        <div class="tab" id="newPage">
+            <h2>Create a New Character Page</h2>
+            <form id="newPageForm">
+                <label for="newPageName">Character Name:</label>
+                <input type="text" id="newPageName" placeholder="Enter character name" required>
+                <button type="submit">Create New Page</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        document.getElementById('editForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const page = document.getElementById('page').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').innerHTML;
+
+            fetch('/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ page, title, content })
+            }).then(response => response.text())
+              .then(data => alert(data));
+        });
+    </script>
+</body>
+</html>

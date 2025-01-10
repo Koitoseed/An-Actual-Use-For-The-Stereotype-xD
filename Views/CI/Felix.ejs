@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Asteroid</title>
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        /* General Setup */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            background-color: black;
+
+            /* Background Image Setup */
+            background-image: url('/images/FBG.png');
+            background-size: cover; /* Ensures it fills width without gaps */
+            background-repeat: no-repeat;
+            background-position: center 0; /* Start at top */
+            background-attachment: scroll;
+
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-style: italic;
+            font-size: 4em;
+            text-align: center;
+            color: #FFD700;
+            margin-bottom: auto;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Invisible Scroll Section */
+        .invisible-scroll {
+            height: 5000px; /* Placeholder; updated dynamically in JS */
+            opacity: 0%;
+        }
+
+        /* GIF Overlay Styling */
+        .gif-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 2s ease;
+        }
+
+        .gif-overlay img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .gif-small {
+            display: none;
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 200px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<% if (showHeader) { %>
+    <%- include('../header') %>
+<% } %>
+
+<body>
+    <!-- Page Title -->
+    <h1>Felix Asteroid</h1>
+
+    <!-- GIF Overlay -->
+    <div class="gif-overlay" id="gifOverlay">
+        <img src="/images/Felix.gif" alt="Felix Intro Animation">
+    </div>
+
+    <!-- Small Persistent GIF -->
+    <img src="/images/Felix.gif" alt="Felix Small Animation" class="gif-small" id="gifSmall">
+
+    <!-- Invisible Scroll Section -->
+    <div class="invisible-scroll" id="scrollContainer"></div>
+
+    <!-- Parallax Scrolling Script -->
+    <script>
+        // Adjust Scroll Speed (Lower = Slower)
+        const scrollSpeed = 0.3;
+
+        // Update Background Scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const offset = scrollPosition * scrollSpeed;
+
+            document.body.style.backgroundPositionY = `${offset}px`;
+        });
+
+        // Dynamic Height Adjustment
+        const imgAspectRatio = 3285 / 1846; // Image aspect ratio (height/width)
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        // Calculate height based on width
+        const imageHeight = windowWidth * imgAspectRatio;
+
+        // Update invisible scroll height
+        const scrollContainer = document.getElementById('scrollContainer');
+        scrollContainer.style.height = `${imageHeight - windowHeight}px`;
+    </script>
+
+    <!-- GIF Script -->
+    <script>
+        const showGifOverlay = false; // Toggle GIF display
+        const gifOverlay = document.getElementById('gifOverlay');
+        const gifSmall = document.getElementById('gifSmall');
+
+        if (showGifOverlay) {
+            setTimeout(() => {
+                gifOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    gifOverlay.style.display = 'none';
+                    gifSmall.style.display = 'none';
+                }, 2000);
+            }, 3500);
+        } else {
+            gifOverlay.style.display = 'none';
+            gifSmall.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

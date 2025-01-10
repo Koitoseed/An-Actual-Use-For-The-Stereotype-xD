@@ -1,0 +1,77 @@
+    <div id="main-navbar" class="navbar__container">
+        <a href="Aaron" class="navbar__link">Aaron Silver</a>
+        <a href="Alicia" class="navbar__link">Alicia Syna</a>
+        <a href="Allison" class="navbar__link">Allison Wonder</a>
+        <a href="Alexander" class="navbar__link">Alexander Wonder</a>
+        <a href="Amethyst" class="navbar__link">Amethyst Millers</a>
+        <a href="Angie" class="navbar__link">Angie Lawrence</a>
+        <a href="Andromeda" class="navbar__link">Andromeda</a>
+        <a href="Amaris" class="navbar__link">Amaris Asteroid</a>
+        <a href="Berna" class="navbar__link">Berna Stary</a>
+        <a href="Beret" class="navbar__link">Beret Stary</a>
+        <a href="Basil" class="navbar__link">Basil Rose</a>
+        <a href="Bel" class="navbar__link">Bel Rose</a>
+        <a href="Blossom" class="navbar__link">Blossom Rose</a>
+        <a href="Coralline" class="navbar__link">Coralline Marine Jewel</a>
+        <a href="Charlotte" class="navbar__link">Charlotte Nebula</a>
+        <a href="Celes" class="navbar__link">Celes Geode</a>
+        <a href="Cloudy" class="navbar__link">Cloudy</a>
+        <a href="Claris" class="navbar__link">Claris</a>
+        <a href="Cory" class="navbar__link">Cory</a>
+        <a href="Coby" class="navbar__link">Coby/Zyaire</a>
+        <a href="Dalia" class="navbar__link">Dalia Scorch</a>
+        <a href="Daisy" class="navbar__link">Daisy Rose</a>
+        <a href="Dani" class="navbar__link">Dani Syna</a>
+        <a href="Dust" class="navbar__link">Dust</a>
+        <a href="Ezhra" class="navbar__link">Ezhra</a>
+        <a href="Flint" class="navbar__link">Flint Mercury</a>
+        <a href="Freddie" class="navbar__link">Freddie Millers</a>
+        <a href="Gabriel" class="navbar__link">Gabriel Scorch</a>
+        <a href="Helli" class="navbar__link">Helli/Hellena</a>
+        <a href="Illisha" class="navbar__link">Illisha Cosmic</a>
+        <a href="Irene" class="navbar__link">Irene Evans</a>
+        <a href="Ivyanri" class="navbar__link">Ivyanri Lun</a>
+        <a href="Jenny" class="navbar__link">Jenny/OpalSpark</a>
+        <a href="Jean" class="navbar__link">Jean Solace</a>
+        <a href="Jex" class="navbar__link">Jex</a>
+        <a href="Jonathan" class="navbar__link">Jonathan Solace</a>
+        <a href="Kelliayyana" class="navbar__link">Kelliayyana Wind</a>
+        <a href="Kyler" class="navbar__link">Kyler Meteor</a>
+        <a href="Keziulain" class="navbar__link">Keziulain Nova</a>
+        <a href="Kial" class="navbar__link">Kial Asteroid</a>
+        <a href="Lorelai" class="navbar__link">Lorelai</a>
+        <a href="Lulu" class="navbar__link">Lulu Nebula</a>
+        <a href="Luke" class="navbar__link">Luke Saturn</a>
+        <a href="Lucinda" class="navbar__link">Lucinda Saturn</a>
+        <a href="Luminasa" class="navbar__link">Luminasa</a>
+        <a href="Laura" class="navbar__link">Laura Saturn</a>
+        <a href="Lara" class="navbar__link">Lara Neptune</a>
+        <a href="Lucy" class="navbar__link">Lucy Neptune</a>
+        <a href="Astoria" class="navbar__link">Astoria Syna</a>
+        <a href="Lia" class="navbar__link">Lia</a>
+        <a href="Lilac" class="navbar__link">Lilac</a>
+        <a href="Millie" class="navbar__link">Millie (Mini) Nebula</a>
+        <a href="Midnight" class="navbar__link">Midnight</a>
+        <a href="Marcus" class="navbar__link">Marcus Neptune</a>
+        <a href="Melly" class="navbar__link">Melly</a>
+        <a href="Neil" class="navbar__link">Neil Nebula</a>
+        <a href="Olivia" class="navbar__link">Olivia/The Witch</a>
+        <a href="Qail" class="navbar__link">Qail</a>
+        <a href="Ryo" class="navbar__link">Ryo Stary</a>
+        <a href="Remedy" class="navbar__link">Remedy Syna</a>
+        <a href="River" class="navbar__link">River</a>
+        <a href="Sun" class="navbar__link">Sun E.</a>
+        <a href="Starr" class="navbar__link">Starr E.</a>
+        <a href="Stella" class="navbar__link">Stella Mercury</a>
+        <a href="Selene" class="navbar__link">Selene Mercury</a>
+        <a href="Sam" class="navbar__link">Sam Asteroid</a>
+        <a href="Tina" class="navbar__link">Tina Scorch</a>
+        <a href="Tony" class="navbar__link">Tony Scorch</a>
+        <a href="Tobias" class="navbar__link">Tobias Asteroid</a>
+        <a href="Yako" class="navbar__link">Yako/Yoka</a>
+        <a href="Zachary" class="navbar__link">Zachary Nova</a>
+        <a href="Zuzia" class="navbar__link">Zuzia (Zuzu) Nebula</a>
+        <a href="Wilfred" class="navbar__link">Wilfred Millers</a>
+        <a href="Mono" class="navbar__link">Mono Hizlnepa</a>
+        <a href="Felix" class="navbar__link">Felix Asteroid</a>
+    </div>

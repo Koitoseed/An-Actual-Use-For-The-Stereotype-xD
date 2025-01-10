@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title> <!-- Dynamic title with EJS -->
+    <link rel="stylesheet" href="/styles.css"> <!-- Make sure your styles are linked -->
+    <style>
+        /* -------------------- HOME PAGE SPECIFIC STYLES -------------------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url('/images/Home.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center top;
+            color: white;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .character-list-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 20%;
+            left: 45%;
+            z-index: 10;
+        }
+
+        .character-list-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .invisible-scroll {
+            height: 4000px;
+            opacity: 0%;
+        }
+    </style>
+</head>
+<body>
+    <% if (showHeader) { %>
+        <%- include('header') %>
+      <% } %>
+      
+    <main>
+        <a href="/character-index">
+            <button class="character-list-button">Enter Character List</button>
+        </a>
+
+        <button id="adminDashboardBtn" class="admin-dashboard-btn" style="display: none;" onclick="window.location.href='/admin';">
+            Admin Dashboard
+        </button>
+
+        <div class="invisible-scroll"></div>
+    </main>
+
+    <script>
+        function checkAdminCookie() {
+            const isAdmin = document.cookie.includes('admin=true');
+            if (isAdmin) {
+                document.getElementById('adminDashboardBtn').style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkAdminCookie);
+    </script>
+    <script src="/Scripts/Header.js"></script>
+</body>
+</html>

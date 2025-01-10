@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Index | Endless Moonverse</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="character-page" style="background-image: url('/images/CI.png'); background-size: cover; background-repeat: no-repeat; background-position: center top;">
+
+    <% if (showHeader) { %>
+        <%- include('header') %>
+      <% } %>
+      
+    <style>
+        .character-page body, .character-page html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1F2B80;
+            background-image: url('/images/CharaList.png') !important;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center top;
+            background-attachment: scroll;
+            color: white;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .navbar__container {
+            padding-top: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 60%;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .navbar__link {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            font-family: monospace;
+            font-weight: bold;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background-color: rgba(55, 0, 0, 0.7);
+            border-radius: 5px;
+            width: 40%;
+            min-width: 120px;
+            margin: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar__link:hover {
+            transform: scale(1.1);
+            background-color: rgba(100, 0, 0, 0.9);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.8);
+            text-decoration: none;
+        }
+
+        .navbar__container--secondary {
+            margin-top: 20px;
+            padding-top: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 60%;
+            margin: 0 auto;
+            border-top: 2px solid #FFC107;
+        }
+
+        .separator-title {
+            font-family: monospace;
+            font-size: 24px;
+            color: #FFC107;
+            text-align: center;
+            margin-top: 1px;
+            margin-bottom: -30px;
+        }
+
+        .invisible-scroll {
+            height: 200px;
+            opacity: 0%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar__container,
+            .navbar__container--secondary {
+                max-width: 90%;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .navbar__link {
+                width: auto;
+                margin: 10px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+
+    <!-- Main character navbar -->
+    <div id="main-navbar" class="navbar__container">
+        <% characters.forEach(function(character) { %>
+            <% let cleanName = character.replace('.ejs', ''); %>
+            <a href="/CI/<%= cleanName %>" class="navbar__link"><%= cleanName %></a>
+        <% }); %>       
+    </div>
+
+    <!-- Separator for aesthetic purposes -->
+    <div class="separator-title">Out-of-Universe Characters</div>
+
+    <!-- Out-of-universe character navbar -->
+    <div id="out-universe-navbar" class="navbar__container--secondary">
+        <% outOfUniverseCharacters.forEach(function(character) { %>
+            <% let cleanName = character.replace('.ejs', ''); %>
+            <a href="/OUI/<%= cleanName %>" class="navbar__link"><%= cleanName %></a>
+        <% }); %>
+    </div>
+
+    <div class="invisible-scroll"></div>
+
+    <script src="/Scripts/Mari.js"></script>
+</body>
+</html>
