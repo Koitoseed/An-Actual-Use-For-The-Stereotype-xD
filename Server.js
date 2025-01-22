@@ -15,19 +15,17 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 // Character Index dynamic rendering
-app.get('/character-index', function(req, res) {
+app.get('/character-index', function (req, res) {
     const ciPath = path.join(__dirname, 'views', 'CI');
     const ouiPath = path.join(__dirname, 'views', 'OUI'); // Add OUI path
 
-    fs.readdir(ciPath, function(err, ciFiles) {
+    fs.readdir(ciPath, function (err, ciFiles) {
         if (err) {
             console.log('Error reading CI directory.');
             res.status(500).send('Failed to load character index');
         } else {
-            fs.readdir(ouiPath, function(err, ouiFiles) { // Read OUI folder
+            fs.readdir(ouiPath, function (err, ouiFiles) { // Read OUI folder
                 if (err) {
                     console.log('Error reading OUI directory.');
                     res.status(500).send('Failed to load out-of-universe characters');
@@ -48,7 +46,7 @@ app.get('/character-index', function(req, res) {
     });
 });
 
-
+// Login page route
 app.get('/login', (req, res) => {
     res.render('login', { error: null }); // Initially, error is null
 });
@@ -63,6 +61,14 @@ app.post('/login', (req, res) => {
     }
 });
 
+// Felix page route
+app.get('/CI/Felix', (req, res) => {
+    res.render('CI/Felix', {
+        title: 'Felix Asteroid | Endless Moonverse',
+        showHeader: true,
+        showGifOverlay: false, // or true, if you want it toggled initially
+    });
+});
 
 // Dynamic routing for other pages
 app.get('/:page', (req, res) => {
@@ -77,14 +83,6 @@ app.get('/:page', (req, res) => {
     }
 });
 
-app.get('/CI/Felix', (req, res) => {
-    res.render('CI/Felix', { title: 'Felix Asteroid | Endless Moonverse', showHeader: true });
-});
-
-res.render('Felix', {
-    showGifOverlay: false, // or true, if you want it toggled initially
-  });
-  
-
+// Server setup
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
